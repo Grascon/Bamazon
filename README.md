@@ -1,4 +1,4 @@
-<h1>Bamazon</h1>
+<h1>Welcome to Bamazon!</h1>
 <br>
 <h3>Bamazon Customer</h3>
     <p> When running node bamazonCustomer.js you will be displayed Bamazon's awesome inventory stored in a MySQL Database.
@@ -10,6 +10,7 @@
         When completing the order you will be given the total price and an order summary.
     <br>
     </p>
+<h3>Bamazon Manager</h3>
     <p> When running node bamazonManager.js you will be displayed Bamazon's Manager Menu and be able to select from various options.
     <br>
         Selecting "View Products for Sale" allows you to view the entire inventory stored in a MySQL Database.
@@ -20,3 +21,4 @@
     <br>
         Selecting "Exit" with have you exit from the menu.
     </p>
+    <a href="https://grascon.github.io/Bamazon/home.html">Bamazon Demo</a>
