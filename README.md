@@ -11,14 +11,18 @@
     <br>
     </p>
 <h3>Bamazon Manager</h3>
-    <p> When running node bamazonManager.js you will be displayed Bamazon's Manager Menu and be able to select from various options.
-    <br>
+    <p> 
+        When running node bamazonManager.js you will be displayed Bamazon's Manager Menu and be able to select from various options.
+        <br>
         Selecting "View Products for Sale" allows you to view the entire inventory stored in a MySQL Database.
-    <br>
+        <br>
         Selecting "View Low Inventory" allows you to view the products that have less than 5 in stock.
-    <br>
+        <br>
         Selecting "Add to Inventory" allows you to add to the products stock and updates the database in MySQL.            
-    <br>
+        <br>
+        Selecting "Add New Product" allows you to add a new product to the inventory and updates the database in MySQL.
+        <br>
         Selecting "Exit" with have you exit from the menu.
     </p>
-    <a href="https://grascon.github.io/Bamazon/home.html">Bamazon Demo</a>
+    <h2>Click the link below to see how Bamazon works!</h2>
+    <a href="https://grascon.github.io/Bamazon/home.html" target = "_blank">Bamazon Demo</a>

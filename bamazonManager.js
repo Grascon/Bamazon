@@ -1,7 +1,5 @@
-//dependencies
 var inquirer = require("inquirer");
 var mysql = require("mysql");
-//connecting to database
 var conn = mysql.createConnection({
     host: "localhost",
     port: 3306,
@@ -101,18 +99,13 @@ function addToInventory (){
                 message: "Please enter the amount you would like to add"
             }
         ]).then (function(results){
-            //checking current inventory
+
             conn.query("SELECT * FROM products WHERE ?",{item_id: results.product}, function(err, res){
-                //setting variables with values from database
                 var productChosen = res[0].product_name;
                 var amountleft = res[0].stock_quantity;
                 var added = parseInt(results.quantity);
-                //determining if at least 1 is being added
                 if (added >= 1){
-                //setting variables of new amount after adding that will be used to update database
                     var newStockQuantity = amountleft + added;
-                    //console.log(newStockQuantity);
-                    
                     conn.query(
                         "UPDATE products SET ? WHERE ?",
                         [
@@ -137,4 +130,42 @@ function addToInventory (){
             
         });
     })
+}
+
+function addNewProduct (){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "product",
+            message: "Please enter the name of the product you would like to add to the inventory."
+        },
+        {
+            type: "input",
+            name: "department",
+            message: "Please enter the name of the department the product belongs in."
+        },
+        {
+            type: "input",
+            name: "price",
+            message: "Please enter the price of the new product."
+        },
+        {
+            type: "input",
+            name: "quantity",
+            message: "Please enter the stock quantity of the new product."
+        }
+    ]).then (function(data){
+        var query = conn.query("INSERT INTO products SET ?",
+            {
+                product_name: data.product,
+                department_name: data.department,
+                price: data.price,
+                stock_quantity: data.quantity
+            }, function(err, res){
+                if (err) throw err;
+                console.log("Congratulations! A new product has been added to Bamazon's Inventory!");
+                viewProducts();
+            }
+        );
+    });
 }
